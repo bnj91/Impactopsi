@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informe Interactivo: Impacto de la Discapacidad en la Familia</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Earthy Calm -->
+    <!-- Application Structure Plan: Se ha optado por una estructura narrativa de desplazamiento vertical. Esta guía al usuario desde el contexto general hacia los detalles específicos, imitando un proceso de aprendizaje natural. Comienza con una introducción (El Alma de la Familia), establece el contexto histórico (De la Exclusión a la Espera), define el concepto central (La Familia como Ecosistema), y luego profundiza en el núcleo del informe con una sección de pestañas interactivas para las "4 Etapas del Proceso Emocional". Esto desglosa la información más densa. Continúa con el impacto en las relaciones, la dualidad de la crisis (Peligro vs. Oportunidad) y concluye con soluciones y resiliencia (Intervención y Claves de Walsh), ofreciendo un cierre constructivo. Esta estructura se eligió porque convierte un monólogo de presentación en un diálogo interactivo, mejorando la retención y el compromiso del usuario al permitirle controlar el ritmo de exploración. -->
+    <!-- Visualization & Content Choices: 1. Etapas del Proceso Emocional: Reporte -> Describir las 4 etapas. Goal -> Facilitar la comprensión de un proceso secuencial complejo. Viz/Method -> Pestañas interactivas. Interaction -> El usuario hace clic en cada etapa para revelar su contenido. Justification -> Evita la sobrecarga de información y fomenta la participación activa. Library -> Vanilla JS + Tailwind. 2. Claves de Adaptación (Walsh): Reporte -> Presentar los 4 pilares de Walsh. Goal -> Ofrecer estrategias claras y memorables. Viz/Method -> Tarjetas de contenido con íconos. Interaction -> Hover sutil para resaltar. Justification -> Organiza visualmente los conceptos clave en bloques distintos y fáciles de digerir. Library -> Tailwind CSS. 3. Crisis: Peligro vs Oportunidad: Reporte -> Comparar los dos resultados de una crisis. Goal -> Mostrar la dualidad de la situación. Viz/Method -> Diseño de dos columnas con un sutil contraste de fondo. Interaction -> Estático. Justification -> La división visual refuerza el concepto de encrucijada de manera inmediata. Library -> Tailwind CSS. No se utilizaron gráficos ya que el material de origen es cualitativo. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #F8F7F5; color: #4E4B42; }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        .tab.active { border-color: #7E8D85; color: #7E8D85; background-color: #FFFFFF; }
+        .smooth-transition { transition: all 0.3s ease-in-out; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <main class="container mx-auto px-4 py-8 md:py-16 max-w-5xl">
+
+        <!-- Header Section -->
+        <header class="text-center mb-16">
+            <h1 class="text-4xl md:text-5xl font-bold text-[#4E4B42] mb-4">El Alma de la Familia ante la Discapacidad</h1>
+            <p class="text-lg md:text-xl text-[#7E8D85]">Un viaje por el impacto psicoemocional y los caminos de resiliencia.</p>
+            <div class="mt-4 text-sm text-gray-500">Un informe interactivo basado en el trabajo de Lic. Jorge Jalile</div>
+        </header>
+
+        <!-- Section 1: Context -->
+        <section class="mb-16 bg-white p-8 rounded-2xl shadow-sm">
+             <h2 class="text-2xl font-bold text-center mb-6 text-[#4E4B42]">De la Exclusión a la Espera: Un Cambio de Mirada</h2>
+             <div class="max-w-3xl mx-auto text-center text-gray-600">
+                <p class="mb-4">Esta sección explora la evolución histórica de la percepción de la discapacidad, un cambio fundamental para entender las presiones y expectativas que enfrentan las familias hoy. Pasamos de una visión que permitía el abandono a una que celebra la llegada de un nuevo miembro, creando un complejo escenario emocional cuando la realidad difiere de lo esperado.</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8 mt-8 text-center">
+                <div class="border border-gray-200 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-2 text-gray-500">Antes</h3>
+                    <p class="text-gray-700">El niño "anormal" era considerado un "reemplazo" o "engendro". Esta deshumanización creaba el marco conceptual que permitía, sin culpa, su abandono o muerte.</p>
+                </div>
+                <div class="border-2 border-[#7E8D85] p-6 rounded-lg bg-green-50/30">
+                    <h3 class="text-xl font-semibold mb-2 text-[#4E4B42]">Hoy</h3>
+                    <p class="text-gray-700">Un hijo es esperado, soñado y deseado. Los padres reservan para él un lugar en la familia y en el corazón. La pregunta emerge: ¿qué sucede si el niño nacido no es el esperado?</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Family as an Ecosystem -->
+        <section class="mb-16 text-center">
+            <h2 class="text-2xl font-bold mb-4 text-[#4E4B42]">El Epicentro de la Experiencia</h2>
+             <div class="max-w-3xl mx-auto text-center text-gray-600 mb-8">
+                <p>La discapacidad nunca debe ser vista como un asunto individual. Esta sección introduce el concepto de la familia como un ecosistema vivo y dinámico. Comprender esto es clave, ya que cualquier cambio, desafío o triunfo de uno de sus miembros repercute y transforma a todos los demás, redefiniendo las relaciones y el funcionamiento del conjunto.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                    <h3 class="font-bold text-lg mb-2 text-[#7E8D85]">Intermediación</h3>
+                    <p>Actúa como puente entre el individuo y la sociedad, traduciendo y mediando las normas y expectativas del mundo exterior.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                    <h3 class="font-bold text-lg mb-2 text-[#7E8D85]">Identidad</h3>
+                    <p>Es el espacio primario donde se forja la identidad, el sentido de pertenencia y el autoconcepto de cada persona.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                    <h3 class="font-bold text-lg mb-2 text-[#7E8D85]">Sistema Dinámico</h3>
+                    <p>Funciona como un sistema interconectado: lo que afecta a un miembro, inevitablemente resuena y moviliza a todo el grupo.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: The Emotional Journey -->
+        <section id="journey" class="mb-16">
+            <h2 class="text-2xl font-bold text-center mb-4 text-[#4E4B42]">El Viaje Emocional de la Familia</h2>
+            <div class="max-w-3xl mx-auto text-center text-gray-600 mb-8">
+                <p>El diagnóstico de una discapacidad marca el inicio de un proceso de adaptación complejo y no lineal. A través de las pestañas interactivas a continuación, puede explorar las cuatro etapas emocionales clave que muchas familias transitan. Cada etapa presenta desafíos y necesidades únicas en el camino hacia la reorganización y la resiliencia.</p>
+            </div>
+            <div class="w-full max-w-4xl mx-auto">
+                <div class="flex flex-col sm:flex-row border-b border-gray-300 mb-4">
+                    <button class="tab active flex-1 py-3 px-4 text-center font-semibold text-gray-500 border-b-4 border-transparent hover:bg-gray-100 smooth-transition" onclick="openTab(event, 'shock')">1. Shock y Diagnóstico</button>
+                    <button class="tab flex-1 py-3 px-4 text-center font-semibold text-gray-500 border-b-4 border-transparent hover:bg-gray-100 smooth-transition" onclick="openTab(event, 'pilgrimage')">2. Peregrinación</button>
+                    <button class="tab flex-1 py-3 px-4 text-center font-semibold text-gray-500 border-b-4 border-transparent hover:bg-gray-100 smooth-transition" onclick="openTab(event, 'despair')">3. Desgaste y Duelo</button>
+                    <button class="tab flex-1 py-3 px-4 text-center font-semibold text-gray-500 border-b-4 border-transparent hover:bg-gray-100 smooth-transition" onclick="openTab(event, 'reorganization')">4. Reorganización</button>
+                </div>
+
+                <div id="shock" class="tab-content active p-6 bg-white rounded-2xl shadow-sm">
+                    <h3 class="font-bold text-xl mb-3 text-[#4E4B42]">Shock o Embotamiento</h3>
+                    <p class="mb-3">Es el momento del veredicto, un nudo en la garganta. La cara del médico lo dice todo y los padres se miran buscando el pellizco que los despierte. Al psiquismo le cuesta procesar la información, que se siente como un texto escrito en otro idioma.</p>
+                    <p class="font-semibold text-[#7E8D85]">Necesidad Clave: Un seguimiento orientador que ayude a recuperar el sentido común y la calma.</p>
+                </div>
+                <div id="pilgrimage" class="tab-content p-6 bg-white rounded-2xl shadow-sm">
+                    <h3 class="font-bold text-xl mb-3 text-[#4E4B42]">Peregrinación</h3>
+                    <p class="mb-3">Aún conmocionados, surgen las interconsultas. Es un camino donde la esperanza y la frustración están a la orden del día. Se exploran múltiples vías (religión, medicina alternativa, etc.) en un afán, a veces mágico, de curación.</p>
+                    <p class="font-semibold text-[#7E8D85]">Riesgo: La búsqueda frenética puede agotar recursos emocionales y económicos.</p>
+                </div>
+                <div id="despair" class="tab-content p-6 bg-white rounded-2xl shadow-sm">
+                    <h3 class="font-bold text-xl mb-3 text-[#4E4B42]">Descreimiento, Desesperanza y Hastío</h3>
+                    <p class="mb-3">Las fisuras del proceso dejan marcas en forma de agobio y tristeza. La familia se siente cansada del largo camino, agotada de negociaciones y tratamientos, con la sensación de haber sido dirigida por un proceso de ensayo y error.</p>
+                    <p class="font-semibold text-[#7E8D85]">Necesidad Clave: Una carga energizante que reactive "la maquinaria eternizante del duelo" y permita vivir el presente.</p>
+                </div>
+                <div id="reorganization" class="tab-content p-6 bg-white rounded-2xl shadow-sm">
+                    <h3 class="font-bold text-xl mb-3 text-[#4E4B42]">Reorganización y Resiliencia</h3>
+                    <p class="mb-3">Se produce un nuevo posicionamiento de los padres frente al grupo familiar. Son despertares que permiten la circulación del afecto y la palabra de forma consistente. La familia hace del trauma una herramienta para continuar, dando lugar al Temple.</p>
+                    <p class="font-semibold text-[#7E8D85]">Logro: El cambio se dirige hacia el interior, dando flexibilidad a nuevos puntos de vista y fortaleciendo a la familia.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Crisis as Opportunity -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold text-center mb-4 text-[#4E4B42]">La Crisis como una Encrucijada</h2>
+             <div class="max-w-3xl mx-auto text-center text-gray-600 mb-8">
+                <p>Toda crisis es un punto de inflexión que presenta dos caminos divergentes. La forma en que la familia afronta este momento crucial puede llevar a la desorganización o, por el contrario, convertirse en una poderosa oportunidad de aprendizaje y crecimiento. Esta sección contrapone ambos resultados potenciales para ilustrar la importancia de un afrontamiento adaptativo.</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-0.5">
+                <div class="bg-red-50/40 p-8 rounded-l-2xl">
+                    <h3 class="text-xl font-bold mb-3 text-red-800">Peligro (Riesgos)</h3>
+                    <ul class="list-disc list-inside space-y-2 text-red-900">
+                        <li><strong>Desorganización:</strong> Las reglas y roles se vuelven confusos.</li>
+                        <li><strong>Aislamiento:</strong> La familia se encierra en el dolor y se aparta de las redes de apoyo.</li>
+                        <li><strong>Disfuncionalidad:</strong> Los conflictos se agravan y cronifican, afectando la salud mental de todos.</li>
+                    </ul>
+                </div>
+                <div class="bg-green-50/40 p-8 rounded-r-2xl">
+                    <h3 class="text-xl font-bold mb-3 text-green-800">Oportunidad (Potencial)</h3>
+                    <ul class="list-disc list-inside space-y-2 text-green-900">
+                        <li><strong>Aprendizaje:</strong> Se desarrollan nuevas habilidades y fortalezas.</li>
+                        <li><strong>Fortaleza:</strong> Los lazos familiares se vuelven más fuertes y profundos.</li>
+                        <li><strong>Nuevo Significado:</strong> La experiencia se integra y se convierte en una fuente de propósito y empatía.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Professional Help -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold text-center mb-4 text-[#4E4B42]">El Rol del Profesional: Acompañar, no Dirigir</h2>
+            <div class="max-w-3xl mx-auto text-center text-gray-600 mb-8">
+                <p>La intervención psicológica es fundamental, no para dar respuestas mágicas, sino para construir un andamiaje seguro donde la familia pueda encontrar sus propias soluciones. A continuación se detallan los objetivos centrales de este acompañamiento, enfocados en empoderar a la familia y promover un entorno saludable para todos sus miembros.</p>
+            </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
+                <div class="bg-white p-6 rounded-2xl shadow-sm text-center">
+                    <span class="text-2xl">✅</span>
+                    <h3 class="font-semibold mt-2">Acompañar y Sostener</h3>
+                    <p class="text-sm text-gray-600">Ser una presencia constante y segura en el proceso.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm text-center">
+                    <span class="text-2xl">✅</span>
+                    <h3 class="font-semibold mt-2">Desculpabilizar</h3>
+                    <p class="text-sm text-gray-600">Romper el ciclo de la culpa y el "qué hubiera pasado si...".</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm text-center">
+                    <span class="text-2xl">✅</span>
+                    <h3 class="font-semibold mt-2">Fomentar el Respiro</h3>
+                    <p class="text-sm text-gray-600">Estimular el ocio, el tiempo libre y el autocuidado.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm text-center">
+                    <span class="text-2xl">✅</span>
+                    <h3 class="font-semibold mt-2">Crear Redes</h3>
+                    <p class="text-sm text-gray-600">Conectar con otras familias y recursos comunitarios.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm text-center">
+                    <span class="text-2xl">✅</span>
+                    <h3 class="font-semibold mt-2">No Segregar</h3>
+                    <p class="text-sm text-gray-600">Promover la integración real dentro y fuera de casa.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: Keys to Resilience -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold text-center mb-4 text-[#4E4B42]">Claves para una Adaptación Saludable</h2>
+            <div class="max-w-3xl mx-auto text-center text-gray-600 mb-8">
+                <p>Basado en el modelo de Froma Walsh, existen pilares fundamentales que sostienen a las familias y les permiten no solo sobrevivir a la adversidad, sino también fortalecerse a través de ella. Esta sección presenta cuatro áreas clave en las que las familias pueden trabajar para construir resiliencia y fomentar un entorno de apoyo mutuo.</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white p-6 rounded-2xl shadow-sm border-l-4 border-[#A9A390]">
+                    <h3 class="font-bold text-lg mb-2">1. Sistema de Creencias</h3>
+                    <p>Darle un sentido a la experiencia, por difícil que sea. Mantener una mirada de esperanza y optimismo, enfocándose en las posibilidades más que en las limitaciones.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border-l-4 border-[#A9A390]">
+                    <h3 class="font-bold text-lg mb-2">2. Organización Familiar</h3>
+                    <p>Ser flexibles con los roles y las reglas. Estar abiertos a buscar y aceptar ayuda externa, ya sea de la comunidad, otros familiares o profesionales.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border-l-4 border-[#A9A390]">
+                    <h3 class="font-bold text-lg mb-2">3. Comunicación Abierta</h3>
+                    <p>Crear un espacio seguro para expresar emociones (tristeza, rabia, alegría) sin miedo al juicio. Hablar con claridad y, sobre todo, escucharse activamente.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border-l-4 border-[#A9A390]">
+                    <h3 class="font-bold text-lg mb-2">4. Resolución de Problemas</h3>
+                    <p>Enfrentar los retos como un equipo unido. Identificar los problemas, colaborar en la búsqueda de soluciones y celebrar los pequeños y grandes logros en el camino.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="text-center mt-16 border-t pt-8">
+            <blockquote class="text-xl italic text-gray-700 mb-4 max-w-3xl mx-auto">
+                "Integrar implica construir un nuevo marco conceptual que nos aloje a todos, con nuestras capacidades y diferencias."
+            </blockquote>
+            <p class="text-gray-500">La discapacidad no define a una persona ni a una familia. Es una característica que, abrazada con amor, información y apoyo, se convierte en una inesperada fuente de fortaleza y conexión.</p>
+        </footer>
+
+    </main>
+
+    <script>
+        function openTab(event, tabName) {
+            let i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+                tabcontent[i].classList.remove('active');
+            }
+            tablinks = document.getElementsByClassName("tab");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove('active');
+            }
+            document.getElementById(tabName).style.display = "block";
+            document.getElementById(tabName).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+        document.addEventListener('DOMContentLoaded', () => {
+             document.querySelector('.tab.active').click();
+        });
+    </script>
+</body>
+</html>
